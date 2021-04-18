@@ -1,0 +1,75 @@
+//BREAKPOINTS
+$breakpoint-small-phone: 380px !default;
+$breakpoint-phone: 767px !default;
+$breakpoint-tablet: 991px !default;
+$breakpoint-desktop: 992px !default;
+
+@mixin small-phone {
+  @media (max-width: #{$breakpoint-small-phone}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$breakpoint-phone}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+//wave
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}

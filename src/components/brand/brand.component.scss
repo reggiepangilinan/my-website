@@ -1,0 +1,24 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.brand {
+  display: flex;
+  align-items: flex-start;
+  > h1 {
+    font-size: 1.2rem;
+    line-height: 104%;
+    max-width: 90px;
+    > a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  > h2 {
+    margin-left: 5rem;
+    font-size: 1rem;
+
+    @include small-phone {
+      display: none;
+    }
+  }
+}

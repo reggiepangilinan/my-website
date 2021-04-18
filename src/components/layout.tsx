@@ -6,13 +6,17 @@
  */
 
 import * as React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./header/header.component"
 import "./layout.scss"
+import { useState } from "react"
+import NavMenu from "./navmenu/navmenu.component"
 
-const Layout = ({ children }) => {
+type LayoutProps = {}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,7 +29,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
+      <NavMenu isOpen={isMenuOpen} />
+      <main>{children}</main>
       <div
         style={{
           margin: `0 auto`,
@@ -33,8 +39,7 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <footer
+        {/* <footer
           style={{
             marginTop: `2rem`,
           }}
@@ -42,14 +47,10 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        </footer> */}
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

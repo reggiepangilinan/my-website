@@ -1,0 +1,14 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+section.hireme {
+  min-height: 65vh;
+
+  @include phone {
+    min-height: 80vh;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+}
