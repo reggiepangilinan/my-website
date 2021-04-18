@@ -17,8 +17,8 @@ const AboutMe: React.FC<AboutMeProps> = () => (
       data-sal-delay="50"
       data-sal-easing="ease"
     >
-      I'm a software engineer with <strong>15 years+</strong> of experience
-      currently based in <strong>Sydney, Australia</strong>.
+      I'm a <strong>software engineer</strong> with <strong>15+ years</strong>{" "}
+      of experience currently based in <strong>Sydney, Australia</strong>.
     </p>
 
     <p
@@ -29,9 +29,9 @@ const AboutMe: React.FC<AboutMeProps> = () => (
     >
       I've worked with a variety of organizations - from start-ups to
       established businesses and government agency in different parts of the
-      world. 🌎 I love working with people! 👨‍👩‍👧‍👧 It's just more fun that way.
-      Especially when creating products and services that helps businesses solve
-      their problems through efficient software development.
+      world. I love working with people! It's just more fun that way. Especially
+      when creating products and services that helps businesses solve their
+      problems through efficient software development.
     </p>
 
     <p

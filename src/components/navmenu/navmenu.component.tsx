@@ -10,27 +10,33 @@ const NavMenu: React.FC<NavMenuProps> = ({
   toggleMenuOpen,
 }: NavMenuProps) => (
   <nav className={isOpen ? "navmenu open" : "navmenu"}>
-    <div
-      className="close-menu"
-      onClick={() => {
-        toggleMenuOpen(!isOpen)
-      }}
-    >
-      Close
-    </div>
+    <div>
+      <div
+        className="close-menu"
+        onClick={() => {
+          toggleMenuOpen(!isOpen)
+        }}
+      >
+        Close
+      </div>
 
-    <ul>
-      <li>
-        <Link to="/" activeClassName="active">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link to="/blog/" activeClassName="active">
-          Blog
-        </Link>
-      </li>
-    </ul>
+      <ul>
+        <li>
+          <Link to="/" activeClassName="active">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/blog/" activeClassName="active">
+            Blog
+          </Link>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      © {new Date().getFullYear()}{" "}
+      <a href="https://www.reggiepangilinan.com">Reggie Pangilinan</a>
+    </footer>
   </nav>
 )
 

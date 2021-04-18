@@ -5,6 +5,7 @@
   top: 0;
   right: 0;
   position: fixed;
+  justify-content: space-between;
   background-color: $colour-bg;
   height: 100vh;
   width: 100vw;
@@ -19,6 +20,7 @@
   }
 
   @include desktop {
+    height: 95vh;
     padding: 2rem;
     opacity: 1 !important;
     width: $size-sidenav-with-desktop;
@@ -69,4 +71,13 @@
 
 .navmenu a.active {
   color: $colour-active-text;
+}
+
+footer {
+  font-size: 0.5rem;
+  font-weight: 800;
+  margin: 1rem;
+  @include desktop {
+    margin-bottom: 1rem;
+  }
 }
