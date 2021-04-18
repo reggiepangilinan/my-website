@@ -16,7 +16,7 @@ import NavMenu from "./navmenu/navmenu.component"
 type LayoutProps = {}
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, toggleMenuOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,8 +29,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
-      <NavMenu isOpen={isMenuOpen} />
+      <Header isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
+      <NavMenu isOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
       <main>{children}</main>
       <div
         style={{

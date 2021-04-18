@@ -3,31 +3,26 @@
 
 header {
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
+  justify-content: space-between;
   background-color: $colour-bg;
-
   width: 100%;
   z-index: 700;
 
   @include desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: $size-contentwith-desktop;
     padding: 2rem;
   }
-  padding: 2rem 1rem;
 }
 
 header > div.header-menu {
   display: none;
   @include tablet {
     display: block;
-    position: fixed;
-    right: 0;
-    margin-right: 2rem;
-
-    @include phone {
-      margin-right: 1rem;
-    }
+  }
+  @include phone {
+    display: block;
   }
 }

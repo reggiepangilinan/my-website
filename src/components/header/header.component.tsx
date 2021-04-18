@@ -4,10 +4,10 @@ import "./header.component.scss"
 
 type HeaderProps = {
   isMenuOpen: boolean
-  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+  toggleMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 const renderMenu = (
-  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  toggleMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
   isMenuOpen: boolean,
   text: string
 ):
@@ -24,7 +24,7 @@ const renderMenu = (
     <div
       className="header-menu"
       onClick={() => {
-        setMenuOpen(!isMenuOpen)
+        toggleMenuOpen(!isMenuOpen)
       }}
     >
       {text}
@@ -32,12 +32,10 @@ const renderMenu = (
   )
 }
 
-const Header = ({ isMenuOpen, setMenuOpen }: HeaderProps) => (
+const Header = ({ isMenuOpen, toggleMenuOpen }: HeaderProps) => (
   <header>
     <Brand />
-    {isMenuOpen
-      ? renderMenu(setMenuOpen, isMenuOpen, "Close")
-      : renderMenu(setMenuOpen, isMenuOpen, "Menu")}
+    {renderMenu(toggleMenuOpen, isMenuOpen, "Menu")}
   </header>
 )
 

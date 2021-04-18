@@ -13,8 +13,7 @@
   flex-direction: column;
   z-index: 500;
   ul {
-    font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     list-style: none;
   }
 
@@ -23,6 +22,7 @@
     opacity: 1 !important;
     width: $size-sidenav-with-desktop;
     ul {
+      font-weight: bold;
       font-size: 1rem;
       li {
         margin-bottom: 0.3rem;
@@ -34,8 +34,8 @@
     opacity: 0;
     right: -100vw;
     ul {
-      margin-top: 7rem;
-      padding: 1rem;
+      margin-top: 1rem;
+      padding: 0rem 1rem;
     }
   }
 
@@ -43,8 +43,8 @@
     opacity: 0;
     right: -100vw;
     ul {
-      margin-top: 7rem;
-      padding: 1rem;
+      margin-top: 1rem;
+      padding: 0rem 1rem;
     }
   }
 }
@@ -53,6 +53,17 @@
   opacity: 1 !important;
   transition: opacity 0.2s ease;
   right: 0;
+}
+
+.close-menu {
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  @include desktop {
+    display: none;
+  }
 }
 
 .navmenu a.active {

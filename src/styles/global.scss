@@ -42,8 +42,8 @@ body {
 }
 
 main {
-  padding-top: 3rem;
   @include desktop {
+    padding-top: 3rem;
     max-width: $size-contentwith-desktop;
   }
 }
