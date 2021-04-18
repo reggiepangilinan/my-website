@@ -6,8 +6,8 @@ type BrandProps = {
   title?: string
 }
 const Brand: React.FC<BrandProps> = ({
-  name = "Reggie Pangilinan.",
-  title = "Software Engineer.",
+  name = "Reggie Pangilinan",
+  title = "Software Engineer",
 }: BrandProps) => (
   <div className="brand">
     <h1>

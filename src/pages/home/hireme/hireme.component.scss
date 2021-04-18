@@ -3,8 +3,14 @@
 
 section.hireme {
   min-height: 65vh;
-
+  padding-top: 3rem;
   @include phone {
+    padding-top: 10rem;
+    min-height: 80vh;
+  }
+
+  @include small-phone {
+    padding-top: 10rem;
     min-height: 80vh;
   }
 
