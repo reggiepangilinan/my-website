@@ -1,0 +1,60 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.navmenu {
+  top: 0;
+  right: 0;
+  position: fixed;
+  background-color: $colour-bg;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0 !important;
+  display: flex;
+  flex-direction: column;
+  z-index: 500;
+  ul {
+    font-weight: bold;
+    font-size: 3rem;
+    list-style: none;
+  }
+
+  @include desktop {
+    padding: 2rem;
+    opacity: 1 !important;
+    width: $size-sidenav-with-desktop;
+    ul {
+      font-size: 1rem;
+      li {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+
+  @include tablet {
+    opacity: 0;
+    right: -100vw;
+    ul {
+      margin-top: 7rem;
+      padding: 1rem;
+    }
+  }
+
+  @include phone {
+    opacity: 0;
+    right: -100vw;
+    ul {
+      margin-top: 7rem;
+      padding: 1rem;
+    }
+  }
+}
+
+.navmenu.open {
+  opacity: 1 !important;
+  transition: opacity 0.2s ease;
+  right: 0;
+}
+
+.navmenu a.active {
+  color: $colour-active-text;
+}

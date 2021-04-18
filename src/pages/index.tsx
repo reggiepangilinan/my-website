@@ -4,11 +4,15 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import AboutMe from "./home/aboutme/aboutme.component"
+import HireMe from "./home/hireme/hireme.component"
 
 const IndexPage = (props: PageProps) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
+    <SEO title="Reggie Pangilinan | Software Engineer" />
+    <AboutMe />
+    <HireMe />
+    {/* <h1>Hi people</h1>
     <h2>{props.path}</h2>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -23,7 +27,7 @@ const IndexPage = (props: PageProps) => (
     <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    </p> */}
   </Layout>
 )
 

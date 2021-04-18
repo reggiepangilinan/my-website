@@ -1,0 +1,34 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $colour-bg;
+
+  width: 100%;
+  z-index: 700;
+
+  @include desktop {
+    width: $size-contentwith-desktop;
+    padding: 2rem 2rem 0.5rem 2rem;
+  }
+
+  padding: 1rem;
+}
+
+header > div.header-menu {
+  display: none;
+  @include tablet {
+    display: block;
+    position: fixed;
+    right: 0;
+    margin-right: 2rem;
+
+    @include phone {
+      margin-right: 1rem;
+    }
+  }
+}
