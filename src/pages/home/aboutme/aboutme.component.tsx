@@ -18,7 +18,7 @@ const AboutMe: React.FC<AboutMeProps> = () => (
       data-sal-easing="ease"
     >
       I'm a software engineer with <strong>15 years+</strong> of experience.
-      Based in <strong>Sydney, AU</strong>. 💻🐱‍💻
+      Based in <strong>Sydney, AU</strong>.
     </p>
 
     <p

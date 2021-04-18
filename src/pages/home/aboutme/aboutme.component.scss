@@ -2,7 +2,6 @@
 @import "../../../styles/mixins.scss";
 
 section.aboutme {
-  margin-top: 7rem;
   min-height: 80vh;
 
   @include phone {
@@ -10,10 +9,11 @@ section.aboutme {
   }
 
   @include small-phone {
-    min-height: 120vh;
+    min-height: 110vh;
   }
 
   h1 {
-    margin-bottom: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
   }
 }
