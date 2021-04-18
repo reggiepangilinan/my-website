@@ -11,7 +11,7 @@ const HireMe: React.FC<HireMeProps> = () => (
     >
       <span className="gradient1">Let’s do</span>
       <span className="gradient1"> amazing work</span>
-      <span className="gradient1"> together</span>
+      <span className="gradient1"> together! </span>
       <span role="img" className="wave">
         🤝
       </span>
