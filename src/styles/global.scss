@@ -16,7 +16,7 @@ body {
   font-size: 18px;
   padding: 1rem;
   background: $colour-bg;
-  word-wrap: break-word;
+  word-break: keep-all;
   @include desktop {
     padding: 2rem;
   }

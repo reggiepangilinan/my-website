@@ -7,7 +7,7 @@ const AboutMe: React.FC<AboutMeProps> = () => (
       data-sal="slide-up"
       data-sal-duration="500"
       data-sal-delay="50"
-      data-sal-easing="ease"
+      data-sal-easing="fade"
     >
       <span className="gradient1">About me</span>
     </h1>

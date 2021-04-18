@@ -9,7 +9,7 @@ const HireMe: React.FC<HireMeProps> = () => (
       data-sal-delay="50"
       data-sal-easing="ease"
     >
-      <span className="gradient1">Let’s do amazing work together!</span>
+      <span className="gradient1">Let’s do amazing work together! </span>
       <span role="img" className="wave">
         🤝
       </span>
