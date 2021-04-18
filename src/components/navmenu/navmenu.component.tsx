@@ -31,11 +31,20 @@ const NavMenu: React.FC<NavMenuProps> = ({
             Blog
           </Link>
         </li>
+
+        <li>
+          <a
+            href="https://www.linkedin.com/in/reggiepangilinan/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+        </li>
       </ul>
     </div>
     <footer>
-      © {new Date().getFullYear()}{" "}
-      <a href="https://www.reggiepangilinan.com">Reggie Pangilinan</a>
+      <a href="https://www.reggiepangilinan.com">reggiepangilinan.com</a> ©{" "}
+      {new Date().getFullYear()}
     </footer>
   </nav>
 )
