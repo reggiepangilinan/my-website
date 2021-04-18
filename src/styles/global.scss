@@ -16,10 +16,13 @@ body {
   font-size: 18px;
   padding: 1rem;
   background: $colour-bg;
-  word-break: keep-all;
+  word-wrap: break-word;
   @include desktop {
     padding: 2rem;
   }
+}
+span {
+  word-wrap: break-word;
 }
 
 html,
