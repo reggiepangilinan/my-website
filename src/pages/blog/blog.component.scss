@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+section.blog {
+  h1 {
+    margin-top: 5rem;
+  }
+  h4 {
+    margin-bottom: 4rem;
+  }
+}

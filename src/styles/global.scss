@@ -42,8 +42,8 @@ body {
 }
 
 main {
+  padding-top: 5rem;
   @include desktop {
-    padding-top: 3rem;
     max-width: $size-contentwith-desktop;
   }
 }
@@ -63,7 +63,7 @@ h1 {
 }
 
 p {
-  line-height: 165%;
+  line-height: 145%;
   margin-bottom: 1.5rem;
 }
 

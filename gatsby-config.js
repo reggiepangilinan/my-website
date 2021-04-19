@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Reggie Pangilinan`,
@@ -5,6 +9,13 @@ module.exports = {
     author: `@reggiepangilinan`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,

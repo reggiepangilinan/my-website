@@ -43,8 +43,8 @@ const NavMenu: React.FC<NavMenuProps> = ({
       </ul>
     </div>
     <footer>
-      <a href="https://www.reggiepangilinan.com">reggiepangilinan.com</a> ©{" "}
-      {new Date().getFullYear()}
+      © {new Date().getFullYear()}{" "}
+      <a href="https://www.reggiepangilinan.com">reggiepangilinan.com</a>
     </footer>
   </nav>
 )
