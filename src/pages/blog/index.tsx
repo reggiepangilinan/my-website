@@ -1,8 +1,9 @@
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 import { first, get } from "lodash"
 import * as React from "react"
-import AnimatedSlideUpDiv from "../../components/animated-slideup-div/animated-slideup-div.component"
+import AnimatedSlideUpElement from "../../components/animated-slideup-element/animated-slideup-element.component"
+import BlogPostCard from "../../components/blog-post-card/blog-post-card.component"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
@@ -18,26 +19,31 @@ const Blog: React.FC<BlogProps> = ({ data }: BlogProps) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <section className="blog">
-        <AnimatedSlideUpDiv>
+      <div className="blog-container">
+        <AnimatedSlideUpElement type="div">
           <h1>
             <span className="gradient1">Blog posts</span>
           </h1>
           <h4>Checkout my latest posts 😉👍</h4>
-        </AnimatedSlideUpDiv>
+        </AnimatedSlideUpElement>
 
-        {blogPostsExcerpts.map((p, i) => {
-          const post = get(p, "node")
-          const postPage: any = first(get(post, "compose__page"))
-          const postImage: any = getImage(post.image)
-          return (
-            <div key={`post${i}`}>
-              <GatsbyImage image={postImage} alt="A dinosaur" />
-              <h2>{postPage.title}</h2>
-            </div>
-          )
-        })}
-      </section>
+        <div className="post-container">
+          {blogPostsExcerpts.map((p, i) => {
+            const post = get(p, "node")
+            const postPage: any = first(get(post, "compose__page"))
+            const postImage: any = getImage(post.image)
+            return (
+              <BlogPostCard
+                key={`post${i}`}
+                date={new Date(postPage.createdAt).toDateString()}
+                title={postPage.title}
+                imageObject={postImage}
+                imageAlt={post.imageAlt}
+              />
+            )
+          })}
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -46,7 +52,9 @@ export default Blog
 
 export const pageQuery = graphql`
   {
-    allContentfulBlogPost {
+    allContentfulBlogPost(
+      sort: { order: DESC, fields: compose__page___seo___updatedAt }
+    ) {
       edges {
         node {
           compose__page {
@@ -55,11 +63,9 @@ export const pageQuery = graphql`
             createdAt
             updatedAt
           }
+          imageAlt
           image {
-            gatsbyImageData(width: 320)
-          }
-          excerpt {
-            excerpt
+            gatsbyImageData(width: 500)
           }
         }
       }
