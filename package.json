@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Reggie Pangilinan <reggiepangilinan@gmail.com>",
   "dependencies": {
+    "@contentful/rich-text-types": "^14.1.2",
     "@fontsource/nunito-sans": "^4.2.2",
     "gatsby": "^3.2.1",
     "gatsby-plugin-gatsby-cloud": "^2.2.0",

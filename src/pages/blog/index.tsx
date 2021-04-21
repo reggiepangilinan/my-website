@@ -35,6 +35,7 @@ const Blog: React.FC<BlogProps> = ({ data }: BlogProps) => {
             return (
               <BlogPostCard
                 key={`post${i}`}
+                slug={postPage.slug}
                 date={new Date(postPage.createdAt).toDateString()}
                 title={postPage.title}
                 imageObject={postImage}
