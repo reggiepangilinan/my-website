@@ -27,7 +27,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
           </Link>
         </li>
         <li>
-          <Link to="/blog/" activeClassName="active">
+          <Link to="/blog/" activeClassName="active" partiallyActive={true}>
             Blog
           </Link>
         </li>

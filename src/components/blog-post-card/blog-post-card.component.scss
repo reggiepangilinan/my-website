@@ -4,11 +4,11 @@
 .blog-post-card {
   background-color: #0f011a;
   padding: 2rem 1rem 1rem;
-  border-radius: 0.5rem;
+
   transition: all ease-in 0.2s;
   cursor: pointer;
+  height: 90%;
   .image-wrapper {
-    border-radius: 0.3rem;
     max-height: 200px;
     .image {
       border: 0;

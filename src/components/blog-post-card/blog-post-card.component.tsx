@@ -30,7 +30,7 @@ const BlogPostCard = ({
       />
       <div className="content">
         <div className="date">{date}</div>
-        <h2 className="title">{title}</h2>
+        <h3 className="title">{title}</h3>
       </div>
     </AnimatedSlideUpElement>
   </Link>

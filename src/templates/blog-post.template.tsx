@@ -17,22 +17,34 @@ type BlogPostProps = {
 const Bold = ({ children }: any) => {
   return <span className="bold">{children}</span>
 }
-const Text = ({ children }: any) => <p className="align-center">{children}</p>
+
+const Text = ({ children }: any) => <p>{children}</p>
 
 const options = {
   renderMark: {
     [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>,
+    [MARKS.CODE]: (text: any) => {
+      return (
+        <pre>
+          <code>{text}</code>
+        </pre>
+      )
+    },
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+      console.log(node)
+      const assetImage: any = getImage(node.data.target)
+      const assetImageAlt: string = node.data.target.description
       return (
-        <>
-          <h2>Embedded Asset</h2>
-          <pre>
-            <code>{JSON.stringify(node, null, 2)}</code>
-          </pre>
-        </>
+        <GatsbyImage
+          image={assetImage}
+          alt={assetImageAlt}
+          loading="eager"
+          className="asset-image-wrapper"
+          imgClassName="asset-image"
+        />
       )
     },
   },
@@ -52,6 +64,7 @@ const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
           <h1 className="title gradient1">{postPage.title}</h1>
           <p className="sub-title">This should really be a good subtitle.</p>
         </AnimatedSlideUpElement>
+
         <GatsbyImage
           image={postImage}
           alt={post.imageAlt}
@@ -82,10 +95,18 @@ export const pageQuery = graphql`
       }
       imageAlt
       image {
-        gatsbyImageData(width: 1600)
+        gatsbyImageData(width: 900)
       }
       body {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            description
+            __typename
+            gatsbyImageData(formats: NO_CHANGE)
+          }
+        }
       }
     }
   }

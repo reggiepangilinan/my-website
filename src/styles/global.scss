@@ -18,7 +18,7 @@ body {
   background: $colour-bg;
   word-wrap: break-word;
   @include desktop {
-    padding: 2rem;
+    padding: 2rem 2.5rem;
   }
 }
 span {
@@ -31,6 +31,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   ::-webkit-scrollbar {
+    height: 6px;
     width: 6px;
   }
   ::-webkit-scrollbar-track {
@@ -48,23 +49,23 @@ main {
   }
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: 800 !important;
   letter-spacing: -0.04em;
-}
-
-h1 {
-  font-size: 4rem;
 }
 
 p {
   line-height: 145%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .gradient1 {
@@ -93,4 +94,46 @@ span.wavehover {
 
 span.bold {
   font-weight: bold;
+}
+
+pre code,
+kbd,
+samp {
+  display: block;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  white-space: pre;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  background: #11001d;
+  overflow: scroll;
+  font-size: 0.9rem;
+}
+
+ul {
+  margin: 1rem;
+  li p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+blockquote {
+  background: #11001d;
+  border-left: 10px solid #310158;
+  margin: 1.5rem 0rem;
+  padding: 1em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-size: 1.5rem;
+}
+blockquote:before {
+  color: darkgray;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }
