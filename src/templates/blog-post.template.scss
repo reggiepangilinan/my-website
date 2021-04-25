@@ -12,6 +12,8 @@ article.blog-post {
   }
 }
 
+
+
 article.blog-post {
   margin-top: 5rem;
   max-width: 900px;
@@ -41,7 +43,7 @@ article.blog-post {
       }
     }
 
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     @include phone {
       margin-bottom: 0;
     }
@@ -64,12 +66,27 @@ article.blog-post {
 }
 
 article.blog-post .content {
-  .asset-image-wrapper {
-    max-width: 900px;
-    width: auto;
-    height: auto;
-    .asset-image {
-      object-fit: fill;
+
+  a {
+    text-decoration: underline;
+  }
+
+  .image-component {
+    margin: 4rem 0;
+    .asset-image-wrapper {
+      max-width: 900px;
+      width: auto;
+      height: auto;
+      .asset-image {
+        object-fit: fill;
+      }
+    }
+
+    .image-description {
+      margin: 0.3rem 0;
+      font-size: 0.7em;
+      font-weight: 800;
+      color: gray;
     }
   }
 }

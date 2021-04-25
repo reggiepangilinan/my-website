@@ -1,14 +1,15 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { first, get } from "lodash"
+import { first, get, isEmpty } from "lodash"
 import * as React from "react"
 import AnimatedSlideUpElement from "../components/animated-slideup-element/animated-slideup-element.component"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
 import "./blog-post.template.scss"
+import GithubGist from "../components/github-gist/github-gist.component"
+
 
 type BlogPostProps = {
   data: any
@@ -32,19 +33,29 @@ const options = {
     },
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
+    [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
+      // console.log(node);
+      // console.log(children);
+      return (<Text>{children}</Text>)},
+    [INLINES.HYPERLINK]: (node: any) => {
+      const isGithubGists = node.data.uri.indexOf('gist.github.com') >= 0;
+      if(isGithubGists) return <GithubGist link={node.data.uri}/>
+      return <a href={node.data.uri} target="_blank">{node.content[0].value}</a>
+    },
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-      console.log(node)
       const assetImage: any = getImage(node.data.target)
       const assetImageAlt: string = node.data.target.description
       return (
-        <GatsbyImage
-          image={assetImage}
-          alt={assetImageAlt}
-          loading="eager"
-          className="asset-image-wrapper"
-          imgClassName="asset-image"
-        />
+        <div className="image-component">
+          <GatsbyImage
+            image={assetImage}
+            alt={assetImageAlt}
+            loading="eager"
+            className="asset-image-wrapper"
+            imgClassName="asset-image"
+          />
+          <div className="image-description">{assetImageAlt}</div>
+        </div>
       )
     },
   },
@@ -53,7 +64,7 @@ const options = {
 const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
   const post = get(data, "contentfulBlogPost")
   const postPage: any = first(get(post, "compose__page"))
-  const postDate = new Date(postPage.updatedAt).toDateString()
+  const postDate = new Date(postPage.createdAt).toDateString()
   const postImage: any = getImage(post.image)
   return (
     <Layout>
@@ -62,9 +73,8 @@ const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
         <AnimatedSlideUpElement type="div" className="title-group">
           <div className="date">{postDate}</div>
           <h1 className="title gradient1">{postPage.title}</h1>
-          <p className="sub-title">This should really be a good subtitle.</p>
+          <p className="sub-title">{postPage.seo.description}</p>
         </AnimatedSlideUpElement>
-
         <GatsbyImage
           image={postImage}
           alt={post.imageAlt}
@@ -72,7 +82,6 @@ const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
           className="hero-image-wrapper"
           imgClassName="hero-image"
         />
-
         <div className="content">
           {post.body && renderRichText(post.body, options)}
         </div>
@@ -92,6 +101,11 @@ export const pageQuery = graphql`
         slug
         createdAt
         updatedAt
+        seo {
+				description
+        keywords
+        title
+        }
       }
       imageAlt
       image {

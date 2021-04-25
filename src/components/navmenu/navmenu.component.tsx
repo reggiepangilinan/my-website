@@ -34,6 +34,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
 
         <li>
           <a
+            rel="noopener"
             href="https://www.linkedin.com/in/reggiepangilinan/"
             target="_blank"
           >

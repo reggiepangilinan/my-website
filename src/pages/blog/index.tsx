@@ -15,7 +15,6 @@ type BlogProps = {
 
 const Blog: React.FC<BlogProps> = ({ data }: BlogProps) => {
   const blogPostsExcerpts: any[] = get(data, "allContentfulBlogPost.edges")
-  console.log(blogPostsExcerpts)
   return (
     <Layout>
       <SEO title="Blog" />
@@ -36,7 +35,7 @@ const Blog: React.FC<BlogProps> = ({ data }: BlogProps) => {
               <BlogPostCard
                 key={`post${i}`}
                 slug={postPage.slug}
-                date={new Date(postPage.updatedAt).toDateString()}
+                date={new Date(postPage.createdAt).toDateString()}
                 title={postPage.title}
                 imageObject={postImage}
                 imageAlt={post.imageAlt}
@@ -54,7 +53,7 @@ export default Blog
 export const pageQuery = graphql`
   {
     allContentfulBlogPost(
-      sort: { order: DESC, fields: compose__page___seo___updatedAt }
+      sort: { order: DESC, fields: compose__page___seo___createdAt }
     ) {
       edges {
         node {
