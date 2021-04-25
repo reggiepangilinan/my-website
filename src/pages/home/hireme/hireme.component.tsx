@@ -1,30 +1,22 @@
 import * as React from "react"
+import AnimatedSlideUpElement from "../../../components/animated-slideup-element/animated-slideup-element.component"
 import "./hireme.component.scss"
 type HireMeProps = {}
 const HireMe: React.FC<HireMeProps> = () => (
   <section className="hireme">
-    <h1
-      data-sal="slide-up"
-      data-sal-duration="500"
-      data-sal-delay="50"
-      data-sal-easing="ease"
-    >
+    <AnimatedSlideUpElement type="h1">
       <span className="gradient1">Let’s do</span>
-      <span className="gradient1"> amazing things</span>
+      <span className="gradient1"> amazing</span>
+      <span className="gradient1"> things</span>
       <span className="gradient1"> together! </span>
       <span role="img" className="wave">
         🤝
       </span>
-    </h1>
+    </AnimatedSlideUpElement>
 
-    <h3
-      data-sal="slide-up"
-      data-sal-duration="500"
-      data-sal-delay="50"
-      data-sal-easing="ease"
-    >
+    <AnimatedSlideUpElement type="h3">
       Send me an email 📤
-    </h3>
+    </AnimatedSlideUpElement>
     <a
       href="mailto:reggiepangilinan@gmail.com?subject=Let's%20work%20together%20mate!"
       data-sal="slide-up"

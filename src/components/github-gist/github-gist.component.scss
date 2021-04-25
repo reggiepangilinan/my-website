@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.frame-wrapper {
+  margin-top: 0.5rem;  
+  iframe.gists-wrapper {
+    border: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }  
+}

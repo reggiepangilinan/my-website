@@ -1,0 +1,92 @@
+@import "../styles/variables.scss";
+@import "../styles/mixins.scss";
+
+article.blog-post {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1rem 0;
+    line-height: 105%;
+  }
+}
+
+
+
+article.blog-post {
+  margin-top: 5rem;
+  max-width: 900px;
+
+  > .title-group {
+    .date {
+      color: darkgray;
+      font-size: 0.8rem;
+      padding-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    > h1.title {
+      font-size: 3rem;
+      line-height: 105%;
+      @include phone {
+        font-size: 2.5rem;
+      }
+    }
+
+    p.sub-title {
+      padding: 0.5rem 0 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      @include phone {
+        font-size: 1.2rem;
+      }
+    }
+
+    margin-bottom: 3rem;
+    @include phone {
+      margin-bottom: 0;
+    }
+  }
+
+  .hero-image-wrapper {
+    margin: 1rem 0 3rem;
+    min-height: 450px;
+
+    @include phone {
+      min-height: 0px;
+      width: auto;
+      height: auto;
+    }
+
+    .hero-image {
+      object-fit: fill;
+    }
+  }
+}
+
+article.blog-post .content {
+
+  a {
+    text-decoration: underline;
+  }
+
+  .image-component {
+    margin: 4rem 0;
+    .asset-image-wrapper {
+      max-width: 900px;
+      width: auto;
+      height: auto;
+      .asset-image {
+        object-fit: fill;
+      }
+    }
+
+    .image-description {
+      margin: 0.3rem 0;
+      font-size: 0.7em;
+      font-weight: 800;
+      color: gray;
+    }
+  }
+}

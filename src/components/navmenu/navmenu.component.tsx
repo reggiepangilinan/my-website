@@ -27,13 +27,14 @@ const NavMenu: React.FC<NavMenuProps> = ({
           </Link>
         </li>
         <li>
-          <Link to="/blog/" activeClassName="active">
+          <Link to="/blog/" activeClassName="active" partiallyActive={true}>
             Blog
           </Link>
         </li>
 
         <li>
           <a
+            rel="noopener"
             href="https://www.linkedin.com/in/reggiepangilinan/"
             target="_blank"
           >
@@ -43,8 +44,8 @@ const NavMenu: React.FC<NavMenuProps> = ({
       </ul>
     </div>
     <footer>
-      <a href="https://www.reggiepangilinan.com">reggiepangilinan.com</a> ©{" "}
-      {new Date().getFullYear()}
+      © {new Date().getFullYear()}{" "}
+      <a href="https://www.reggiepangilinan.com">reggiepangilinan.com</a>
     </footer>
   </nav>
 )
