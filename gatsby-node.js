@@ -5,7 +5,7 @@
  */
 
 const path = require("path")
-const { first, get } = require("lodash")
+const { get } = require("lodash")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -22,6 +22,9 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  if(!response.data) return;
+
   response.data.allContentfulBlogPost.edges.forEach(edge => {
     const post = get(edge, "node")
     try {
