@@ -29,14 +29,13 @@ const Blog: React.FC<BlogProps> = ({ data }: BlogProps) => {
         <div className="post-container">
           {blogPostsExcerpts.map((p, i) => {
             const post = get(p, "node")
-            const postPage: any = first(get(post, "compose__page"))
             const postImage: any = getImage(post.image)
             return (
               <BlogPostCard
                 key={`post${i}`}
-                slug={postPage.slug}
-                date={new Date(postPage.createdAt).toDateString()}
-                title={postPage.title}
+                slug={post.slug}
+                date={new Date(post.createdAt).toDateString()}
+                title={post.title}
                 imageObject={postImage}
                 imageAlt={post.imageAlt}
               />
@@ -53,16 +52,14 @@ export default Blog
 export const pageQuery = graphql`
   {
     allContentfulBlogPost(
-      sort: { order: DESC, fields: compose__page___seo___createdAt }
+      sort: { order: DESC, fields: createdAt }
     ) {
       edges {
         node {
-          compose__page {
-            title
-            slug
-            createdAt
-            updatedAt
-          }
+          title
+          slug
+          createdAt
+          updatedAt
           imageAlt
           image {
             gatsbyImageData(width: 500)

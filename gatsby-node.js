@@ -15,10 +15,8 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            compose__page {
-              slug
-              title
-            }
+            slug
+            title
           }
         }
       }
@@ -26,12 +24,9 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   response.data.allContentfulBlogPost.edges.forEach(edge => {
     const post = get(edge, "node")
-    const postPage = first(get(post, "compose__page"))
-    console.info(postPage.slug)
-    console.info(post.id)
     try {
       createPage({
-        path: `/blog/${postPage.slug}`,
+        path: `/blog/${post.slug}`,
         component: path.resolve("./src/templates/blog-post.template.tsx"),
         context: {
           id: post.id,

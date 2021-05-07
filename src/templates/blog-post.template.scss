@@ -34,8 +34,9 @@ article.blog-post {
       }
     }
 
-    p.sub-title {
+    h3.sub-title {
       padding: 0.5rem 0 0.5rem;
+      margin: 0;
       font-size: 1.5rem;
       font-weight: bold;
       @include phone {

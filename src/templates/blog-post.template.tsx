@@ -63,8 +63,7 @@ const options = {
 
 const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
   const post = get(data, "contentfulBlogPost")
-  const postPage: any = first(get(post, "compose__page"))
-  const postDate = new Date(postPage.createdAt).toDateString()
+  const postDate = new Date(post.createdAt).toDateString()
   const postImage: any = getImage(post.image)
   return (
     <Layout>
@@ -72,8 +71,8 @@ const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
       <article className="blog-post">
         <AnimatedSlideUpElement type="div" className="title-group">
           <div className="date">{postDate}</div>
-          <h1 className="title gradient1">{postPage.title}</h1>
-          <p className="sub-title">{postPage.seo.description}</p>
+          <h1 className="title gradient1">{post.title}</h1>
+          <h3 className="sub-title">{post.subTitle}</h3>
         </AnimatedSlideUpElement>
         <GatsbyImage
           image={postImage}
@@ -96,17 +95,11 @@ export const pageQuery = graphql`
   query GetBlogPostById($id: String!) {
     contentfulBlogPost(id: { eq: $id }) {
       id
-      compose__page {
-        title
-        slug
-        createdAt
-        updatedAt
-        seo {
-				description
-        keywords
-        title
-        }
-      }
+      title
+      subTitle
+      slug
+      createdAt
+      updatedAt
       imageAlt
       image {
         gatsbyImageData(width: 900)

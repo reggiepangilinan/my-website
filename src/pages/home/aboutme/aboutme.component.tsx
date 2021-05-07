@@ -9,7 +9,7 @@ const AboutMe: React.FC<AboutMeProps> = () => (
     </AnimatedSlideUpElement>
 
     <AnimatedSlideUpElement type="p">
-      I'm a <strong>software engineer</strong> with <strong>15+ years</strong>{" "}
+      I'm a <strong>software engineer</strong> with over <strong>15 years</strong>{" "}
       of experience currently based in <strong>Sydney, Australia</strong>.
     </AnimatedSlideUpElement>
 
