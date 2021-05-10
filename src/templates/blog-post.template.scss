@@ -46,7 +46,7 @@ article.blog-post {
 
     margin-bottom: 3rem;
     @include phone {
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
   }
 
@@ -70,6 +70,11 @@ article.blog-post .content {
 
   a {
     text-decoration: underline;
+  }
+
+  h2 {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
   }
 
   .image-component {
