@@ -64,7 +64,7 @@ module.exports = {
         host: `https://reggiepangilinan.com`,
         sitemap: `https://reggiepangilinan.com/sitemap.xml`
       }
-    }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`
