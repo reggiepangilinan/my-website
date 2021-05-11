@@ -27,16 +27,17 @@ article.blog-post {
     }
 
     > h1.title {
-      font-size: 3rem;
-      line-height: 105%;
+      font-size: 4rem;
+      line-height: 110%;
       @include phone {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
     }
 
     h3.sub-title {
       padding: 0.5rem 0 0.5rem;
-      margin: 0;
+      margin: 1rem 0rem;
+      line-height: 130%;
       font-size: 1.5rem;
       font-weight: bold;
       @include phone {
