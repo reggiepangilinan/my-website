@@ -49,8 +49,22 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        exclude: [
+          /\S+.component/,
+          /404/
+        ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://reggiepangilinan.com`,
+        sitemap: `https://reggiepangilinan.com/sitemap.xml`
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
