@@ -7,6 +7,7 @@ module.exports = {
     title: `Reggie Pangilinan`,
     description: `I'm a software engineer with over 15 years of experience from Sydney, Australia. My toolbelt includes React, .NET, AWS, GraphQL, gRPC and many more.`,
     author: `@reggieboyYEAH`,
+    siteUrl: `https://reggiepangilinan.com`
   },
   plugins: [
     {
@@ -48,6 +49,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-sitemap`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
