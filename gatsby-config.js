@@ -5,8 +5,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Reggie Pangilinan`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@reggiepangilinan`,
+    description: `I'm a software engineer with over 15 years of experience from Sydney, Australia. My toolbelt includes React, .NET, AWS, GraphQL, gRPC and many more.`,
+    author: `@reggieboyYEAH`,
   },
   plugins: [
     {

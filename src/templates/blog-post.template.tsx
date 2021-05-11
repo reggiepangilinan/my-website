@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { first, get, isEmpty } from "lodash"
+import { first, get, isEmpty, join } from "lodash"
 import * as React from "react"
 import AnimatedSlideUpElement from "../components/animated-slideup-element/animated-slideup-element.component"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
@@ -65,9 +65,25 @@ const Blog: React.FC<BlogPostProps> = ({ data }: BlogPostProps) => {
   const post = get(data, "contentfulBlogPost")
   const postDate = new Date(post.createdAt).toDateString()
   const postImage: any = getImage(post.image)
+  const postKeywords = join(post.keywords,", ")
+  const postPublicImage = post.image.fixed.src
+
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title={post.title} description={post.subTitle} meta={[
+        {
+          name: 'keywords',
+          content: postKeywords
+        },
+        {
+          name: 'twitter:image',
+          content: postPublicImage
+        },
+        {
+          name: 'og:image',
+          content: postPublicImage
+        }
+      ]}/>
       <article className="blog-post">
         <AnimatedSlideUpElement type="div" className="title-group">
           <div className="date">{postDate}</div>
@@ -98,11 +114,15 @@ export const pageQuery = graphql`
       title
       subTitle
       slug
+      keywords
       createdAt
       updatedAt
       imageAlt
       image {
         gatsbyImageData(width: 900)
+        fixed(width: 900) {
+          src
+        }
       }
       body {
         raw
